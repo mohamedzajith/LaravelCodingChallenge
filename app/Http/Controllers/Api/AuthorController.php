@@ -29,7 +29,7 @@ class AuthorController extends Controller
                 'name' => 'required|max:255',
             ]);
             $author = $this->authorRepository->store($request);
-            return $this->successResponse($author);
+            return $this->createResponse($author);
         } catch (ValidationException $validationException) {
             return $this->validationErrorResponse($validationException);
         } catch (Exception $exception) {

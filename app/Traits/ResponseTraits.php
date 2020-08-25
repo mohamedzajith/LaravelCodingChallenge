@@ -11,9 +11,19 @@ trait ResponseTraits
 {
     use ParentResponseTrailts;
 
+    public function deleteResponse($data)
+    {
+        return response()->json(204);
+    }
+
     public function successResponse($data)
     {
         return response()->json($data, 200);
+    }
+
+    public function createResponse($data)
+    {
+        return response()->json($data, 201);
     }
 
     public function validationErrorResponse(ValidationException $exception)

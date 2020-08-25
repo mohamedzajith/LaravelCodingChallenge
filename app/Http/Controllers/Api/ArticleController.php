@@ -34,7 +34,7 @@ class ArticleController extends Controller
                 'content' => 'required',
             ]);
             $article = $this->articleRepository->store($request);
-            return $this->successResponse($article);
+            return $this->createResponse($article);
         } catch (ValidationException $validationException) {
             return $this->validationErrorResponse($validationException);
         } catch (Exception $exception) {
@@ -110,7 +110,7 @@ class ArticleController extends Controller
     {
         try {
             $article = $this->articleRepository->delete($id);
-            return $this->successResponse($article);
+            return $this->deleteResponse($article);
         } catch (ValidationException $validationException) {
             return $this->validationErrorResponse($validationException);
         } catch (Exception $exception) {
